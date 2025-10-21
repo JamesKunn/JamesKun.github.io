@@ -118,8 +118,11 @@ p, .content-detail { color:var(--text-secondary); transition:color 0.3s ease; }
 .tech-item span { font-weight:500; font-size:14px; }
 /* Projects Section */
 #projects .content-right { padding:0 20px; }
-#projects .content-detail { color:#ffffff; }
 #projects .content-detail { color:var(--text-secondary); }
+
+/* Project card paragraphs should be white in both themes */
+.project-info p { color:#ffffff !important; }
+.image-bg p { color:#ffffff !important; }
 .projects-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:30px; justify-items:center; margin:0 auto; }
 .project-item { background:#111; border-radius:12px; overflow:hidden; box-shadow:0 8px 25px rgba(0,0,0,0.3); transition:transform 0.3s ease; }
 .project-item:hover { transform:translateY(-5px); }
