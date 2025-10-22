@@ -261,13 +261,77 @@ p, .content-detail { color:var(--text-secondary); transition:color 0.3s ease; }
   .project-info p { font-size:0.85rem; }
   #projects .content-right { padding:0 12px; }
   /* Contact section mobile */
-  #contact .container { padding:0 15px; }
-  #contact .contact-wrapper { gap:30px; }
-  #contact .contact-form-wrapper { padding:30px 20px; }
+  #contact { padding:40px 0; }
+  #contact .container { padding:0 15px; max-width:100%; }
+  #contact .contact-wrapper { gap:25px; }
+  #contact .contact-header { margin-bottom:10px; }
+  #contact .contact-form-wrapper { 
+    padding:25px 15px; 
+    margin:0 5px;
+    width:calc(100% - 10px);
+    max-width:none;
+    box-sizing:border-box;
+  }
+  #contact form { gap:18px; }
   #contact .group input,
-  #contact .group textarea { font-size:16px; }
-  #contact #sendMessage { width:100%; }
+   #contact .group textarea { 
+    font-size:16px; 
+    padding:12px 14px;
+    box-sizing:border-box;
+  }
+  #contact .group label { left:12px; }
+  #contact .group input:focus + label,
+  #contact .group input:not(:placeholder-shown) + label,
+  #contact .group textarea:focus + label,
+  #contact .group textarea:not(:placeholder-shown) + label { 
+    background:#f8f9fa; 
+    left:10px;
+  }
+  #contact #sendMessage { 
+    width:100%; 
+    padding:16px 24px;
+    font-size:16px;
+    margin-top:5px;
+  }
+  #contact .contact-status { 
+    margin-top:15px; 
+    font-size:14px;
+    padding:0 10px;
+  }
   /* Footer socials wrap and center */
   .footer-top .socials { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; padding:0 10px; }
   .cert-grid { flex-direction:column; }
+}
+
+
+/* Extra small screens (phones in portrait) */
+@media (max-width:480px) {
+  #contact { padding:30px 0; }
+  #contact .container { padding:0 10px; }
+  #contact .contact-form-wrapper { 
+    padding:20px 12px; 
+    margin:0 2px;
+    width:calc(100% - 4px);
+  }
+  #contact form { gap:15px; }
+  #contact .group input,
+  #contact .group textarea { 
+    padding:14px 12px;
+    font-size:16px; /* Prevent zoom on iOS */
+  }
+  #contact .group label { left:10px; }
+  #contact .group input:focus + label,
+  #contact .group input:not(:placeholder-shown) + label,
+  #contact .group textarea:focus + label,
+  #contact .group textarea:not(:placeholder-shown) + label { 
+    left:8px;
+  }
+  #contact #sendMessage { 
+    padding:18px 24px;
+    font-size:16px;
+  }
+  #contact .contact-status { 
+    font-size:13px;
+    padding:0 5px;
+  }
 }
