@@ -21,8 +21,9 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Define the text to be typed
-    const textToType = 'I build clean websites & reliable automations.';
+    const textToType = 'I build clean websites and reliable automations.';
     console.log('Text to type:', textToType);
+    console.log('Text length:', textToType.length);
     
     // Ensure the element is empty initially
     typedElement.innerHTML = '';
@@ -31,17 +32,22 @@ document.addEventListener('DOMContentLoaded', function () {
     setTimeout(() => {
       if (window.Typed) {
         try {
+           // Destroy any existing instance
+          if (typedElement.typed) {
+            typedElement.typed.destroy();
+          }
+          
           const typed = new Typed('.typed', { 
             strings: [textToType], 
-            typeSpeed: 60, 
-            backSpeed: 30, 
+            typeSpeed: 80, 
+            backSpeed: 40, 
             loop: true,
             showCursor: true,
             cursorChar: '|',
             fadeOut: false,
-            startDelay: 800,
-            backDelay: 1500,
-            smartBackspace: true,
+            startDelay: 1000,
+            backDelay: 3000,
+            smartBackspace: false,
             shuffle: false,
             onStringTyped: function() {
               console.log('String typed completely', textToType);
@@ -51,8 +57,15 @@ document.addEventListener('DOMContentLoaded', function () {
             },
             onBegin: function() {
               console.log('Typing animation started');
+            },
+             onLastStringBackspaced: function() {
+              console.log('Last string backspaced');
             }
           });
+          
+          // Store reference for cleanup
+          typedElement.typed = typed;
+          
         } catch (error) {
           console.warn('Typed.js failed to initialize:', error);
           // Fallback: just show the text
@@ -63,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // Fallback: just show the text
         typedElement.textContent = textToType;
       }
-    }, 1000);
+    }, 1500);
   }
   
   // Initialize typing effect
