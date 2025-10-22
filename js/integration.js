@@ -299,6 +299,97 @@ document.addEventListener('DOMContentLoaded', function () {
   // Initialize profile image
   updateProfileImage(savedTheme);
 
+   // Resume download handling
+  const resumeBtn = document.getElementById('btnResume');
+  if (resumeBtn) {
+    resumeBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      // Show loading state
+      const originalText = this.textContent;
+      this.textContent = 'Downloading...';
+      this.style.opacity = '0.7';
+      
+      // Method 1: Try direct download with fetch
+      fetch('files/jameskunresume.pdf')
+        .then(response => {
+          if (response.ok) {
+            return response.blob();
+          }
+          throw new Error('Network response was not ok');
+        })
+        .then(blob => {
+          // Create blob URL and download
+          const url = window.URL.createObjectURL(blob);
+          const link = document.createElement('a');
+          link.href = url;
+          link.download = 'James_Kun_Resume.pdf';
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+          window.URL.revokeObjectURL(url);
+          
+          showDownloadMessage('Resume downloaded successfully!', 'success');
+        })
+        .catch(error => {
+          console.warn('Fetch download failed, trying fallback method:', error);
+          
+          // Method 2: Fallback to direct link
+          const link = document.createElement('a');
+          link.href = 'files/jameskunresume.pdf';
+          link.download = 'James_Kun_Resume.pdf';
+          link.target = '_blank';
+          
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+          
+          showDownloadMessage('Resume download started! Check your downloads folder.', 'info');
+        })
+        .finally(() => {
+          // Reset button state
+          setTimeout(() => {
+            this.textContent = originalText;
+            this.style.opacity = '1';
+          }, 2000);
+        });
+    });
+  }
+  
+  // Helper function to show download messages
+  function showDownloadMessage(message, type = 'success') {
+    const successMsg = document.createElement('div');
+    const bgColor = type === 'success' ? '#28a745' : type === 'info' ? '#17a2b8' : '#dc3545';
+    
+    successMsg.style.cssText = `
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: ${bgColor};
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      z-index: 10000;
+      font-weight: 500;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      animation: slideIn 0.3s ease;
+      max-width: 300px;
+      word-wrap: break-word;
+    `;
+    successMsg.textContent = message;
+    document.body.appendChild(successMsg);
+    
+    // Remove message after 4 seconds
+    setTimeout(() => {
+      successMsg.style.animation = 'slideOut 0.3s ease';
+      setTimeout(() => {
+        if (successMsg.parentNode) {
+          successMsg.parentNode.removeChild(successMsg);
+        }
+      }, 300);
+    }, 4000);
+  }
+
   // Contact form handling
   const contactForm = document.getElementById('contactForm');
   const contactStatus = document.getElementById('contactStatus');
