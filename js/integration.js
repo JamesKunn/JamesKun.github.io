@@ -20,31 +20,31 @@ document.addEventListener('DOMContentLoaded', function () {
       return;
     }
 
-     // Store the original text
-    const originalText = typedElement.textContent.trim();
-    console.log('Original text:', originalText);
+    // Define the text to be typed
+    const textToType = 'I build clean websites & reliable automations.';
+    console.log('Text to type:', textToType);
+    
+    // Ensure the element is empty initially
+    typedElement.innerHTML = '';
     
     // Wait a bit for all scripts to load
     setTimeout(() => {
       if (window.Typed) {
         try {
-          // Clear the element completely
-          typedElement.innerHTML = '';
-          
           const typed = new Typed('.typed', { 
-             strings: [originalText], 
-            typeSpeed: 50, 
-            backSpeed: 25, 
+            strings: [textToType], 
+            typeSpeed: 60, 
+            backSpeed: 30, 
             loop: true,
             showCursor: true,
             cursorChar: '|',
             fadeOut: false,
-            startDelay: 500,
-            backDelay: 1000,
+            startDelay: 800,
+            backDelay: 1500,
             smartBackspace: true,
             shuffle: false,
             onStringTyped: function() {
-              console.log('String typed completely', originalText);
+              console.log('String typed completely', textToType);
             },
             onComplete: function() {
               console.log('Typing animation completed');
@@ -56,14 +56,14 @@ document.addEventListener('DOMContentLoaded', function () {
         } catch (error) {
           console.warn('Typed.js failed to initialize:', error);
           // Fallback: just show the text
-          typedElement.textContent = originalText;
+          typedElement.textContent = textToType;
         }
       } else {
         console.warn('Typed.js library not loaded');
         // Fallback: just show the text
-        typedElement.textContent = originalText;
+        typedElement.textContent = textToType;
       }
-    }, 1500);
+    }, 1000);
   }
   
   // Initialize typing effect
