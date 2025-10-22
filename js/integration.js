@@ -19,44 +19,51 @@ document.addEventListener('DOMContentLoaded', function () {
       console.warn('Typed element not found');
       return;
     }
+
+     // Store the original text
+    const originalText = typedElement.textContent.trim();
+    console.log('Original text:', originalText);
     
     // Wait a bit for all scripts to load
     setTimeout(() => {
-      // Clear any existing content
-      typedElement.innerHTML = '';
-      
-  if (window.Typed) {
+      if (window.Typed) {
         try {
+          // Clear the element completely
+          typedElement.innerHTML = '';
+          
           const typed = new Typed('.typed', { 
-            strings: ['I build clean websites & reliable automations.'], 
-            typeSpeed: 80, 
-            backSpeed: 40, 
+             strings: [originalText], 
+            typeSpeed: 50, 
+            backSpeed: 25, 
             loop: true,
             showCursor: true,
             cursorChar: '|',
             fadeOut: false,
-            startDelay: 1000,
-            backDelay: 2000,
-            smartBackspace: false,
+            startDelay: 500,
+            backDelay: 1000,
+            smartBackspace: true,
             shuffle: false,
             onStringTyped: function() {
-              console.log('String typed completely');
+              console.log('String typed completely', originalText);
             },
             onComplete: function() {
               console.log('Typing animation completed');
+            },
+            onBegin: function() {
+              console.log('Typing animation started');
             }
           });
         } catch (error) {
           console.warn('Typed.js failed to initialize:', error);
           // Fallback: just show the text
-          typedElement.textContent = 'I build clean websites & reliable automations.';
+          typedElement.textContent = originalText;
         }
       } else {
         console.warn('Typed.js library not loaded');
         // Fallback: just show the text
-        typedElement.textContent = 'I build clean websites & reliable automations.';
+        typedElement.textContent = originalText;
       }
-    }, 1000);
+    }, 1500);
   }
   
   // Initialize typing effect
