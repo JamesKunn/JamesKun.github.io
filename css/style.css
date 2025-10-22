@@ -39,12 +39,17 @@ body { font-family: 'Roboto', Arial, sans-serif; margin:0; background:var(--bg-p
 [data-theme="light"] .theme-label { background:rgba(0,0,0,0.1); color:#333; }
 [data-theme="light"] .theme-label:hover { background:rgba(0,0,0,0.2); }
 [data-theme="light"] .theme-toggle input[type="radio"]:checked + .theme-label { background:rgba(0,0,0,0.3); }
+
+/* Light theme specific styling for mobile menu button */
+[data-theme="light"] .mobile-menu-btn { background:rgba(0,0,0,0.1); }
+[data-theme="light"] .mobile-menu-btn:hover { background:rgba(0,0,0,0.2); }
 .nav-link { color:var(--text-primary); text-decoration:none; font-weight:500; font-size:16px; padding:8px 0; position:relative; transition:color 0.3s ease; }
 .nav-link:hover { color:#ad4d65; }
 .nav-link.active { color:#ad4d65; }
 .nav-link.active::after { content:''; position:absolute; bottom:0; left:0; width:100%; height:2px; background:#ad4d65; }
-.mobile-menu-btn { display:none; flex-direction:column; gap:4px; background:none; border:none; cursor:pointer; padding:8px; }
-.mobile-menu-btn span { width:25px; height:3px; background:#fff; transition:all 0.3s ease; }
+.mobile-menu-btn { display:none; flex-direction:column; gap:4px; background:rgba(255,255,255,0.1); border:none; cursor:pointer; padding:8px; border-radius:6px; transition:background 0.3s ease; }
+.mobile-menu-btn:hover { background:rgba(255,255,255,0.2); }
+.mobile-menu-btn span { width:25px; height:3px; background:var(--text-primary); transition:all 0.3s ease; }
 .content-wrap { padding-top:70px; }
 section { padding:60px 0; }
 #home { 
