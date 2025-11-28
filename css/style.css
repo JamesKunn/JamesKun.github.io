@@ -123,7 +123,7 @@ p, .content-detail { color:var(--text-secondary); transition:color 0.3s ease; }
 
 /* About section: ensure title and subtitle align with the same left offset */
 #about .title-small, #about .content-detail {
-  padding-left:20px;
+  padding-left:10px;
   text-align:left;
   margin:0;
 }
