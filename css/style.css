@@ -121,16 +121,12 @@ p, .content-detail { color:var(--text-secondary); transition:color 0.3s ease; }
 #contact .content-detail { padding-left:0; text-align:center; }
 #contact .title-small { padding-left:0; text-align:center; }
 
-/* About section: ensure title and subtitle align with the same left offset */
-#about .title-small, #about .content-detail {
-  padding-left:10px;
-  text-align:left;
-  margin:0;
-}
-#about .content-detail { margin-top:8px; color:var(--text-secondary); }
-
-/* About section paragraphs should be dark for visibility */
-#about p { color:#222; }
+/* About section uses same styling as Tech Stack and Projects */
+#about .title-small span { color:var(--text-accent); }
+#about .content-detail { color:var(--text-secondary); }
+#about p { color:var(--text-secondary); }
+[data-theme="light"] #about p { color:#222; }
+[data-theme="light"] #about .content-detail { color:#222; }
 
 /* Intro section paragraphs - dark in light mode, white in dark mode */
 [data-theme="light"] #intro p { color:#222; }
@@ -147,9 +143,13 @@ p, .content-detail { color:var(--text-secondary); transition:color 0.3s ease; }
 .tech-item:hover { background:#1a1a1a; border-color:rgba(255,214,224,0.3); transform:translateY(-2px); box-shadow:0 8px 20px rgba(0,0,0,0.3); }
 .tech-item img { width:24px; height:24px; object-fit:contain; }
 .tech-item span { font-weight:500; font-size:14px; }
-/* Projects Section */
+/* Tech and Projects Section */
+#tech .content-right { padding:0 20px; }
 #projects .content-right { padding:0 20px; }
+#about .content-right { padding:0 20px; }
+#tech .content-detail { color:#222; }
 #projects .content-detail { color:var(--text-secondary); }
+#about .content-detail { color:var(--text-secondary); }
 
 /* Project card paragraphs should be white in both themes */
 .project-info p { color:#ffffff !important; }
