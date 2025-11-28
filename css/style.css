@@ -117,6 +117,10 @@ p, .content-detail { color:var(--text-secondary); transition:color 0.3s ease; }
 /* Tech section has light background, so content-detail should be dark */
 #tech .content-detail { color:#222; }
 
+/* Contact section - override padding */
+#contact .content-detail { padding-left:0; text-align:center; }
+#contact .title-small { padding-left:0; text-align:center; }
+
 /* About section paragraphs should be dark for visibility */
 #about p { color:#222; }
 
