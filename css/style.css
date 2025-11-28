@@ -109,7 +109,9 @@ section { padding:60px 0; }
 .white-col { background:#fff; color:#222; padding:30px; }
 .white-bg { background:#fff; color:#222; }
 .grey-bg { background:var(--bg-tertiary); color:var(--text-primary); transition:background 0.3s ease, color 0.3s ease; }
+.title-small { text-align:left; padding-left:20px; }
 .title-small span { font-size:1.2rem; color:var(--text-accent); }
+.content-detail { text-align:left; padding-left:20px; }
 p, .content-detail { color:var(--text-secondary); transition:color 0.3s ease; }
 
 /* Tech section has light background, so content-detail should be dark */
