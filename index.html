@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>James Kun — E-Portfolio</title>
+    <title>James Kun E-Portfolio</title>
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <meta content="James Kun - Web Developer, VA, AI Automation" name="description">
@@ -77,9 +77,11 @@
               <div class="col-md-6">
                 <div class="intro-block">
                   <h2>Hello, I'm <strong>James Quijada</strong></h2>
-                  <p>A web developer and virtual assistant passionate about automation and building efficient workflows. I create practical websites and automation solutions that help teams work smarter.</p>
+                    <p> A <strong>System Developer</strong> and <strong>Automation Engineer</strong> specializing in building efficient digital ecosystems. 
+                      I bridge the gap between web development and AI-assisted workflows to help businesses operate with precision and scale.
+                    </p>
                   <div class="intro-cta">
-                    <a href="files/jameskunresume.pdf" download class="btn btn-primary" id="btnResume">Check my resume</a>
+                    <a href="files/quijada-james-resume.pdf" download class="btn btn-primary" id="btnResume">Check my resume</a>
                     <a href="#contact" data-scroll class="btn btn-secondary" id="btnHire">Hire Me</a>
                   </div>
                 </div>
@@ -91,20 +93,20 @@
         <section id="about" class="grey-bg">
           <div class="container">
             <div class="row">
-              <div class="col-md-6 no-pad">
-                <div class="bg-about"></div>
+              <div class="col-md-3">
+                <h3 class="title-small"><span>About Me</span></h3>
               </div>
-              <div class="col-md-6 white-col">
-                <div class="about-header">
-                  <h3 class="title-small"><span>About Me</span></h3>
-                </div>
-                <div class="wrap-about">
-                  <div class="w-content">
-                    <p class="head-about">I'm a results-driven professional specializing in front-end web development, efficient data management, and AI-assisted automation. I focus on clear design and streamlined digital workflows to make daily operations faster and simpler.</p>
-                    <p>With experience supporting businesses remotely, I combine technical skills with reliable virtual assistance and a focus on accuracy and timeliness. I’m available for short- and long-term projects.</p>
-                    <h5 class="name">James Kun</h5>
-                  </div>
-                </div>
+              <div class="col-md-9 content-right">
+                <p class="head-about">
+                    I am a results-driven IT professional specializing in <strong>Full-Stack Development</strong> and <strong>Cloud-based Automation</strong>. 
+                    By combining frameworks like Laravel with powerful integration tools like Make.com, I transform manual processes into streamlined, error-free digital workflows.
+                  </p>
+
+                  <p>
+                    With a background in System Development (OJT) and professional virtual assistance, I focus on delivering high-impact, cost-effective solutions. 
+                    Whether it is building custom Learning Management Systems or architecting automated CRM loops, I ensure every project is built for reliability, accuracy, and timeliness.
+                  </p>
+                <h5 class="name"> - James Kun</h5>
               </div>
             </div>
           </div>
@@ -114,7 +116,7 @@
           <div class="container">
             <div class="row">
               <div class="col-md-3">
-                <h3 class="title-small"><span>Tech Stacks</span></h2>
+                <h3 class="title-small"><span>Tech Stacks</span></h3>
                 <p class="content-detail">Click a skill to view details about my experience.</p>
               </div>
               <div class="col-md-9 content-right">
@@ -139,6 +141,10 @@
                     <img src="images/tech/wordpress.png" alt="Wordpress">
                     <span>Wordpress</span>
                   </button>
+                  <button class="tech-item" data-tech="Make-Integromat">
+                    <img src="images/tech/make.png" alt="Make-Integromat">
+                    <span>Make-Integromat</span>
+                  </button>
                 </div>
               </div>
             </div>
@@ -149,7 +155,7 @@
           <div class="container">
             <div class="row">
               <div class="col-md-3">
-                <h3 class="title-small"><span>Projects</span></h2>
+                <h3 class="title-small"><span>Projects</span></h3>
                 <p class="content-detail">A selection demonstrating my personal projects and previous works.</p>
               </div>
               <div class="col-md-9 content-right">
@@ -187,12 +193,34 @@
                         <p>A Moodle-powered platform designed to manage courses, track student progress, and enhance online learning experiences.</p>
                     </div>
                   </div>
+
+                  <div class="project-item">
+                    <div class="project-carousel" data-project="moodle">
+                      <div class="carousel-slide">
+                        <img src="images/projects/scenario1.png" alt="moodle login">
+                        <div class="decription-wrap"><div class="image-bg"><p class="desc">Welcome Page</p></div></div>
+                      </div>
+                      <div class="carousel-slide">
+                        <img src="images/projects/scenario2.png" alt="about page">
+                        <div class="decription-wrap"><div class="image-bg"><p class="desc">About Page </p></div></div>
+                      </div>
+                    </div>
+                    <div class="project-info">
+                      <h4>Multi-Platform Order Automation System</h4>
+                      <p>
+                          A bi-directional automation connecting Telegram, Google Sheets, and Gmail. 
+                          Features real-time status updates via Telegram callback queries and 
+                          automated data cleaning for streamlined order management.
+                        </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
+      <!--For Optimize use later-->
       <!--section id="certs" class="white-bg">
           <div class="container">
             <div class="row">
@@ -213,8 +241,8 @@
           <div class="container">
             <div class="contact-wrapper">
               <div class="contact-header">
-                <h3 class="title-small"><span>Contact</span></h2>
-                <p class="content-detail">Send a message using the form — I'll reply promptly.</p>
+                <h3 class="title-small"><span>Contact</span></h3>
+                <p class="content-detail">Send a message using the form & I'll reply promptly.</p>
               </div>
               <div class="contact-form-wrapper">
                 <form id="contactForm" method="POST" action="https://api.staticforms.xyz/submit">
@@ -275,9 +303,9 @@
     <script src="js/masonry.pkgd.min.js"></script>
     <script src="js/masonry.js"></script>
     <script src="js/smooth-scroll.min.js"></script>
-    <script src="js/typed.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script src="js/main.js"></script>
     <script src="js/integration.js"></script>
   </body>
 </html>
+

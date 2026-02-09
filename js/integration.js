@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   } catch (e) { console.warn('owl carousel init failed', e); }
 
-  // Typing effect for the hero text
+  // Typing effect for the maangas part text
   function initTypingEffect() {
     const typedElement = document.querySelector('.typed');
     if (!typedElement) {
@@ -82,6 +82,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // Initialize typing effect
   initTypingEffect();
 
+  // Hamburger menu toggle to
   // Mobile menu toggle
   const mobileMenuBtn = document.getElementById('mobile-menu-btn');
   const navMenu = document.querySelector('.nav-menu');
@@ -331,7 +332,7 @@ document.addEventListener('DOMContentLoaded', function () {
       this.style.opacity = '0.7';
       
       // Method 1: Try direct download with fetch
-      fetch('files/jameskunresume.pdf')
+      fetch('files/quijada-james-resume.pdf')
         .then(response => {
           if (response.ok) {
             return response.blob();
@@ -343,7 +344,7 @@ document.addEventListener('DOMContentLoaded', function () {
           const url = window.URL.createObjectURL(blob);
           const link = document.createElement('a');
           link.href = url;
-          link.download = 'James_Kun_Resume.pdf';
+          link.download = 'quijada-james-resume.pdf';
           document.body.appendChild(link);
           link.click();
           document.body.removeChild(link);
@@ -356,8 +357,8 @@ document.addEventListener('DOMContentLoaded', function () {
           
           // Method 2: Fallback to direct link
           const link = document.createElement('a');
-          link.href = 'files/jameskunresume.pdf';
-          link.download = 'James_Kun_Resume.pdf';
+          link.href = 'files/quijada-james-resume.pdf';
+          link.download = 'quijada-james-resume.pdf';
           link.target = '_blank';
           
           document.body.appendChild(link);
