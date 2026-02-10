@@ -168,6 +168,7 @@ document.addEventListener('DOMContentLoaded', function () {
     "Laravel": "Laravel is my main framework for backend development. I’ve built fully functional systems like a Loan Tracking System with authentication, CRUD operations, role management, and database handling. I also worked on creating dashboards and integrating Blade templates, controllers, and models to deliver clean and scalable applications.",
     "MySQL": "I use MySQL to design and manage databases for web applications. I’ve created relational databases for systems like loan tracking and LMS platforms, using proper table relationships, foreign keys, and optimized queries. I’m comfortable with migrations, seeding, and database CRUD operations.",
     "Wordpress": "I work with WordPress to create responsive websites and customize themes for portfolios and simple business sites. I understand how to install plugins, modify themes using PHP, and manage content through the WordPress dashboard. I can also integrate forms, custom pages, and basic SEO setup..",
+    "Make-Integromat": "I specialize in low-code engineering using Make (formerly Integromat) to architect complex, bi-directional automation workflows. I have successfully built ecosystems that connect Telegram, Google Workspace, and Gmail APIs—implementing advanced features like Regex data cleaning, JSON parsing, and dynamic callback queries to transform manual operations into automated digital workflows.",
   };
 
   const modal = document.getElementById('tech-modal');
