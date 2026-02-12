@@ -169,6 +169,10 @@ document.addEventListener('DOMContentLoaded', function () {
     "MySQL": "I use MySQL to design and manage databases for web applications. I’ve created relational databases for systems like loan tracking and LMS platforms, using proper table relationships, foreign keys, and optimized queries. I’m comfortable with migrations, seeding, and database CRUD operations.",
     "Wordpress": "I work with WordPress to create responsive websites and customize themes for portfolios and simple business sites. I understand how to install plugins, modify themes using PHP, and manage content through the WordPress dashboard. I can also integrate forms, custom pages, and basic SEO setup..",
     "Make-Integromat": "I specialize in low-code engineering using Make (formerly Integromat) to architect complex, bi-directional automation workflows. I have successfully built ecosystems that connect Telegram, Google Workspace, and Gmail APIs—implementing advanced features like Regex data cleaning, JSON parsing, and dynamic callback queries to transform manual operations into automated digital workflows.",
+    "HTML": "I use HTML5 to create the structural foundation of my web projects, focusing on semantic code and accessibility. For the Gatekeeper project, I built a custom, lightweight frontend to handle lead capture and data transmission to backend services.",
+    "CSS": "I leverage CSS and frameworks like Tailwind to build responsive, modern, and high-performance user interfaces. I specialize in 'Glassmorphism' and dark-mode aesthetics to give automation tools a premium, professional agency feel.",
+    "Zapier": "Zapier is my primary tool for workflow orchestration and systems integration. I use it to bridge disconnected platforms, manage complex logic branching (Paths), and automate the flow of data between webhooks, AI engines, and productivity suites.",
+    "ChatGPT": "I integrate OpenAI's LLMs to add 'intelligence' to standard applications. I have experience in advanced prompt engineering and lead scoring, using AI to perform real-time intent analysis and autonomous decision-making.",
   };
 
   const modal = document.getElementById('tech-modal');
@@ -276,11 +280,34 @@ document.addEventListener('DOMContentLoaded', function () {
         });
       }
       
-      // Auto-play (optional)
-      setInterval(() => {
+      // Auto-play with pause when carousel is not in view
+      let autoPlayInterval = setInterval(() => {
         currentSlide = (currentSlide + 1) % slides.length;
         updateCarousel();
       }, 4000);
+
+      // Pause auto-play when carousel is not in view
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // Resume auto-play when in view
+            if (!autoPlayInterval) {
+              autoPlayInterval = setInterval(() => {
+                currentSlide = (currentSlide + 1) % slides.length;
+                updateCarousel();
+              }, 4000);
+            }
+          } else {
+            // Pause auto-play when not in view
+            if (autoPlayInterval) {
+              clearInterval(autoPlayInterval);
+              autoPlayInterval = null;
+            }
+          }
+        });
+      }, { threshold: 0.1 });
+
+      observer.observe(carousel);
       
       // Initialize
       updateCarousel();
