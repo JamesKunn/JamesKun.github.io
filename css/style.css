@@ -109,9 +109,8 @@ section { padding:60px 0; }
 .white-col { background:#fff; color:#222; padding:30px; }
 .white-bg { background:#fff; color:#222; }
 .grey-bg { background:var(--bg-tertiary); color:var(--text-primary); transition:background 0.3s ease, color 0.3s ease; }
-.title-small { text-align:left; padding-left:20px; }
-.title-small span { font-size:1.2rem; color:var(--text-accent); }
-.content-detail { text-align:left; padding-left:20px; }
+.title-small { font-weight: 700; }
+.title-small span { font-size:1.2rem; color:var(--text-accent); font-weight: 700; }.content-detail { text-align:left; padding-left:20px; }
 p, .content-detail { color:var(--text-secondary); transition:color 0.3s ease; }
 
 /* Tech section has light background, so content-detail should be dark */
@@ -239,11 +238,13 @@ p, .content-detail { color:var(--text-secondary); transition:color 0.3s ease; }
 /* Contact Section */
 #contact { background:#111; color:#222; }
 #contact .container { max-width:800px; margin:0 auto; padding:0 20px; }
-#contact .contact-wrapper { display:flex; flex-direction:column; align-items:center; gap:40px; }
-#contact .contact-header { text-align:center; }
+#contact .contact-wrapper { display:flex; flex-direction:column; align-items:stretch; gap:40px; width: 100%; max-width: 500px; margin: 0 auto; }
+#contact .contact-header { text-align:center; width: 100%; padding: 0; box-sizing: border-box; }
+#contact .contact-header .title-small { margin: 0 0 0.25rem 0; padding: 0; }
+#contact .contact-header .content-detail { color:#fff; margin: 0.5rem 0 0 0; padding: 0; text-align: center; }
 #contact .title-small span { color:#ad4d65; }
 #contact .content-detail { color:#fff; margin-top:10px; }
-#contact .contact-form-wrapper { background:#f8f9fa; border:1px solid #e9ecef; border-radius:12px; padding:40px; width:100%; max-width:500px; }
+#contact .contact-form-wrapper { background:#f8f9fa; border:1px solid #e9ecef; border-radius:12px; padding:40px; width:100%; max-width: 500px; box-sizing: border-box; }
 #contact form { display:flex; flex-direction:column; gap:20px; }
 #contact .group { position:relative; }
 #contact .group input,
@@ -360,11 +361,12 @@ p, .content-detail { color:var(--text-secondary); transition:color 0.3s ease; }
   .project-info h4 { font-size:1.1rem; }
   .project-info p { font-size:0.85rem; }
   #projects .content-right { padding:0 12px; }
+
   /* Contact section mobile */
   #contact { padding:40px 0; }
   #contact .container { padding:0 15px; max-width:100%; }
   #contact .contact-wrapper { gap:25px; }
-  #contact .contact-header { margin-bottom:10px; }
+  #contact .contact-header { margin: 0 5px 10px 5px; }
   #contact .contact-form-wrapper { 
     padding:25px 15px; 
     margin:0 5px;
