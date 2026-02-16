@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>James Kun E-Portfolio</title>
+    <title>James Kun — E-Portfolio</title>
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <meta content="James Kun - Web Developer, VA, AI Automation" name="description">
@@ -12,14 +12,12 @@
     <link rel="apple-touch-icon" href="images/logo.png">
     <meta name="msapplication-TileImage" content="images/logo.png">
     <meta name="theme-color" content="#ad4d65">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/owl.carousel.css" rel="stylesheet">
-    <link href="css/owl.theme.css" rel="stylesheet">
-    <link href="css/magnific-popup.css" rel="stylesheet">
+    <!-- Bootstrap 5 (grid, utilities) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/james.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
   </head>
   <body>
     <div class="header">
@@ -33,6 +31,7 @@
           <a data-scroll href="#about" class="nav-link">About</a>
           <a data-scroll href="#tech" class="nav-link">Tech Stacks</a>
           <a data-scroll href="#projects" class="nav-link">Projects</a>
+          <!--a data-scroll href="#certs" class="nav-link">Certifications</a -->
           <a data-scroll href="#contact" class="nav-link">Contact</a>
           <div class="theme-toggle">
             <input type="radio" id="light-mode" name="theme" value="light" checked>
@@ -41,7 +40,7 @@
             <label for="dark-mode" class="theme-label">🌙</label>
           </div>
         </nav>
-        <button class="mobile-menu-btn" id="mobile-menu-btn"> 
+        <button class="mobile-menu-btn" id="mobile-menu-btn">
           <span></span>
           <span></span>
           <span></span>
@@ -75,11 +74,9 @@
               <div class="col-md-6">
                 <div class="intro-block">
                   <h2>Hello, I'm <strong>James Quijada</strong></h2>
-                    <p> A <strong>System Developer</strong> and <strong>Automation Engineer</strong> specializing in building efficient digital ecosystems. 
-                      I bridge the gap between web development and AI-assisted workflows to help businesses operate with precision and scale.
-                    </p>
+                  <p>A web developer and virtual assistant passionate about automation and building efficient workflows. I create practical websites and automation solutions that help teams work smarter.</p>
                   <div class="intro-cta">
-                    <a href="files/quijada-james-resume.pdf" download class="btn btn-primary" id="btnResume">Check my resume</a>
+                    <a href="files/jameskunresume.pdf" download class="btn btn-primary" id="btnResume">Check my resume</a>
                     <a href="#contact" data-scroll class="btn btn-secondary" id="btnHire">Hire Me</a>
                   </div>
                 </div>
@@ -90,20 +87,15 @@
 
         <section id="about" class="grey-bg">
           <div class="container">
-            <div class="row">
-              <div class="col-md-3">
-                <h3 class="title-small"><span>About Me</span></h3>
-              <div class="col-md-9 content-right">
-                <p class="head-about">
-                    I am a results-driven IT professional specializing in <strong>Full-Stack Development</strong> and <strong>Cloud-based Automation</strong>. 
-                    By combining frameworks like Laravel with powerful integration tools like Make.com, I transform manual processes into streamlined, error-free digital workflows.
-                  </p>
-
-                  <p>
-                    With a background in System Development (OJT) and professional virtual assistance, I focus on delivering high-impact, cost-effective solutions. 
-                    Whether it is building custom Learning Management Systems or architecting automated CRM loops, I ensure every project is built for reliability, accuracy, and timeliness.
-                  </p>
-                <h5 class="name"> - James Kun</h5>
+            <div class="row justify-content-center">
+              <div class="col-12 col-lg-10">
+                <div class="wrap-about">
+                   <blockquote class="about-quote">
+                    <p class="quote-text">I'm a results-driven professional specializing in front-end web development, efficient data management, and AI-assisted automation. I focus on clear design and streamlined digital workflows to make daily operations faster and simpler.</p>
+                    <p class="quote-text">With experience supporting businesses remotely, I combine technical skills with reliable virtual assistance and a focus on accuracy and timeliness. I’m available for short- and long-term projects.</p>
+                    <cite class="quote-by">— James Kun</cite>
+                  </blockquote>
+                </div>
               </div>
             </div>
           </div>
@@ -125,14 +117,6 @@
                   <button class="tech-item" data-tech="JavaScript">
                     <img src="images/tech/js.png" alt="JavaScript">
                     <span>JavaScript</span>
-                     <button class="tech-item" data-tech="HTML">
-                    <img src="images/tech/html.png" alt="HTML">
-                    <span>HTML</span>
-                  </button>
-                   <button class="tech-item" data-tech="CSS">
-                    <img src="images/tech/css.png" alt="CSS">
-                    <span>CSS</span>
-                  </button>
                   </button>
                   <button class="tech-item" data-tech="Laravel">
                     <img src="images/tech/laravel.png" alt="Laravel">
@@ -146,7 +130,7 @@
                     <img src="images/tech/wordpress.png" alt="Wordpress">
                     <span>Wordpress</span>
                   </button>
-                  <button class="tech-item" data-tech="Make-Integromat">
+                   <button class="tech-item" data-tech="Make-Integromat">
                     <img src="images/tech/make.png" alt="Make-Integromat">
                     <span>Make</span>
                   </button>
@@ -156,7 +140,6 @@
                      <button class="tech-item" data-tech="ChatGPT">
                     <img src="images/tech/chatgpt.png" alt="ChatGPT">
                     <span>Open AI API</span>
-                  </button>
                   </button>
                 </div>
               </div>
@@ -169,11 +152,11 @@
             <div class="row">
               <div class="col-md-3">
                 <h3 class="title-small"><span>Projects</span></h3>
-                <p class="content-detail">A selection demonstrating my personal projects and previous works.</p>
+                <p class="content-detail">A selection demonstrating websites, automation, and VA workflows.</p>
               </div>
               <div class="col-md-9 content-right">
                 <div class="projects-grid">
-                  <div class="project-item">
+                   <div class="project-item">
                     <div class="project-carousel" data-project="laravel">
                       <div class="carousel-slide">
                         <img src="images/projects/project1.png" alt="dashboard">
@@ -247,13 +230,10 @@
                           </p>
                       </div>
                   </div>
-                </div>
-              </div>
             </div>
           </div>
         </section>
 
-      <!--For Optimize use later-->
       <!--section id="certs" class="white-bg">
           <div class="container">
             <div class="row">
@@ -275,7 +255,7 @@
             <div class="contact-wrapper">
               <div class="contact-header">
                 <h3 class="title-small"><span>Contact</span></h3>
-                <p class="content-detail">Send a message using the form & I'll reply promptly.</p>
+                <p class="content-detail">Send a message using the form — I'll reply promptly.</p>
               </div>
               <div class="contact-form-wrapper">
                 <form id="contactForm" method="POST" action="https://api.staticforms.xyz/submit">
@@ -324,22 +304,17 @@
           </div>
         </div>
 
+         <!-- Project image lightbox (click carousel slide to view) -->
+        <div id="project-lightbox" class="project-lightbox" aria-hidden="true">
+          <span class="project-lightbox-close" title="Close">&times;</span>
+          <img src="" alt="" class="project-lightbox-img">
+        </div>
+
       </div>
     </div>
 
-    <script src="js/jquery-1.9.1.min.js"></script>
-    <script src="js/jquery.appear.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/classie.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/masonry.pkgd.min.js"></script>
-    <script src="js/masonry.js"></script>
-    <script src="js/smooth-scroll.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-    <script src="js/main.js"></script>
     <script src="js/integration.js"></script>
   </body>
 </html>
-
-

@@ -1,26 +1,13 @@
 document.addEventListener('DOMContentLoaded', function () {
-  try {
-    if (window.jQuery && jQuery().owlCarousel) {
-      jQuery('.projects-carousel').owlCarousel({
-        items:1,
-        loop:true,
-        autoplay:true,
-        autoplayTimeout:3000,
-        autoplayHoverPause:true,
-        dots:true
-      });
-    }
-  } catch (e) { console.warn('owl carousel init failed', e); }
-
-  // Typing effect for the maangas part text
+  // Typing effect for the hero text
   function initTypingEffect() {
     const typedElement = document.querySelector('.typed');
     if (!typedElement) {
       console.warn('Typed element not found');
       return;
     }
-
-    // Define the text to be typed
+    
+    // Define the text to be typed - using simple text without special characters
     const textToType = 'I build clean websites and reliable automations.';
     console.log('Text to type:', textToType);
     console.log('Text length:', textToType.length);
@@ -32,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
     setTimeout(() => {
       if (window.Typed) {
         try {
-           // Destroy any existing instance
+          // Destroy any existing instance
           if (typedElement.typed) {
             typedElement.typed.destroy();
           }
@@ -50,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
             smartBackspace: false,
             shuffle: false,
             onStringTyped: function() {
-              console.log('String typed completely', textToType);
+              console.log('String typed completely:', textToType);
             },
             onComplete: function() {
               console.log('Typing animation completed');
@@ -58,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
             onBegin: function() {
               console.log('Typing animation started');
             },
-             onLastStringBackspaced: function() {
+            onLastStringBackspaced: function() {
               console.log('Last string backspaced');
             }
           });
@@ -82,7 +69,6 @@ document.addEventListener('DOMContentLoaded', function () {
   // Initialize typing effect
   initTypingEffect();
 
-  // Hamburger menu toggle to
   // Mobile menu toggle
   const mobileMenuBtn = document.getElementById('mobile-menu-btn');
   const navMenu = document.querySelector('.nav-menu');
@@ -280,34 +266,11 @@ document.addEventListener('DOMContentLoaded', function () {
         });
       }
       
-      // Auto-play with pause when carousel is not in view
-      let autoPlayInterval = setInterval(() => {
+      // Auto-play (optional)
+      setInterval(() => {
         currentSlide = (currentSlide + 1) % slides.length;
         updateCarousel();
       }, 4000);
-
-      // Pause auto-play when carousel is not in view
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            // Resume auto-play when in view
-            if (!autoPlayInterval) {
-              autoPlayInterval = setInterval(() => {
-                currentSlide = (currentSlide + 1) % slides.length;
-                updateCarousel();
-              }, 4000);
-            }
-          } else {
-            // Pause auto-play when not in view
-            if (autoPlayInterval) {
-              clearInterval(autoPlayInterval);
-              autoPlayInterval = null;
-            }
-          }
-        });
-      }, { threshold: 0.1 });
-
-      observer.observe(carousel);
       
       // Initialize
       updateCarousel();
@@ -316,6 +279,49 @@ document.addEventListener('DOMContentLoaded', function () {
   
   // Initialize project carousels
   initProjectCarousels();
+
+  // Project image lightbox: click carousel slide to view full image
+  (function initProjectLightbox() {
+    const lightbox = document.getElementById('project-lightbox');
+    const lightboxImg = lightbox && lightbox.querySelector('.project-lightbox-img');
+    const closeBtn = lightbox && lightbox.querySelector('.project-lightbox-close');
+
+    function openLightbox(src, alt) {
+      if (!lightbox || !lightboxImg) return;
+      lightboxImg.src = src;
+      lightboxImg.alt = alt || '';
+      lightbox.classList.add('active');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      if (!lightbox) return;
+      lightbox.classList.remove('active');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.project-carousel .carousel-slide').forEach(function (slide) {
+      slide.addEventListener('click', function (e) {
+        var img = this.querySelector('img');
+        if (img && img.src) {
+          e.preventDefault();
+          openLightbox(img.src, img.alt);
+        }
+      });
+    });
+
+    if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
+    if (lightbox) {
+      lightbox.addEventListener('click', function (e) {
+        if (e.target === lightbox || e.target === closeBtn) closeLightbox();
+      });
+    }
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && lightbox && lightbox.classList.contains('active')) closeLightbox();
+    });
+  })();
 
   // Theme toggle functionality
   const themeRadios = document.querySelectorAll('input[name="theme"]');
@@ -348,7 +354,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // Initialize profile image
   updateProfileImage(savedTheme);
 
-   // Resume download handling
+  // Resume download handling
   const resumeBtn = document.getElementById('btnResume');
   if (resumeBtn) {
     resumeBtn.addEventListener('click', function(e) {
@@ -360,7 +366,7 @@ document.addEventListener('DOMContentLoaded', function () {
       this.style.opacity = '0.7';
       
       // Method 1: Try direct download with fetch
-      fetch('files/quijada-james-resume.pdf')
+      fetch('files/jameskunresume.pdf')
         .then(response => {
           if (response.ok) {
             return response.blob();
@@ -372,7 +378,7 @@ document.addEventListener('DOMContentLoaded', function () {
           const url = window.URL.createObjectURL(blob);
           const link = document.createElement('a');
           link.href = url;
-          link.download = 'quijada-james-resume.pdf';
+          link.download = 'James_Kun_Resume.pdf';
           document.body.appendChild(link);
           link.click();
           document.body.removeChild(link);
@@ -385,8 +391,8 @@ document.addEventListener('DOMContentLoaded', function () {
           
           // Method 2: Fallback to direct link
           const link = document.createElement('a');
-          link.href = 'files/quijada-james-resume.pdf';
-          link.download = 'quijada-james-resume.pdf';
+          link.href = 'files/jameskunresume.pdf';
+          link.download = 'James_Kun_Resume.pdf';
           link.target = '_blank';
           
           document.body.appendChild(link);
