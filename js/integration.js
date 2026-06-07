@@ -366,7 +366,7 @@ document.addEventListener('DOMContentLoaded', function () {
       this.style.opacity = '0.7';
       
       // Method 1: Try direct download with fetch
-      fetch('files/jameskunresume.pdf')
+      fetch('files/james-d-quijada-resume.pdf')
         .then(response => {
           if (response.ok) {
             return response.blob();
@@ -391,8 +391,8 @@ document.addEventListener('DOMContentLoaded', function () {
           
           // Method 2: Fallback to direct link
           const link = document.createElement('a');
-          link.href = 'files/jameskunresume.pdf';
-          link.download = 'James_Kun_Resume.pdf';
+          link.href = 'files//james-d-quijada-resume.pdf';
+          link.download = '/James_Kun_Resume.pdf';
           link.target = '_blank';
           
           document.body.appendChild(link);
