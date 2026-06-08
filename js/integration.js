@@ -161,7 +161,7 @@ document.addEventListener('DOMContentLoaded', function () {
     "ChatGPT": "I integrate OpenAI's LLMs to add 'intelligence' to standard applications. I have experience in advanced prompt engineering and lead scoring, using AI to perform real-time intent analysis and autonomous decision-making.",
     "n8n": "I use n8n to build complex workflow automation systems. I have experience in building systems that connect to external APIs, use AI agents, and perform complex data transformations.",
     "NextJS": "I use NextJS to build server-side rendered web applications. I have experience in building web applications that are fast, scalable, and easy to maintain.",
-    "Google Space": "I use Google Space to build web applications that are integrated with Google Workspace. I have experience in building web applications that are integrated with Google Workspace, such as Google Sheets, Google Docs, and Google Forms.",
+    "Gspace": "I use Google Space to build web applications that are integrated with Google Workspace. I have experience in building web applications that are integrated with Google Workspace, such as Google Sheets, Google Docs, and Google Forms.",
   };
 
   const modal = document.getElementById('tech-modal');
