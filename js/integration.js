@@ -159,6 +159,9 @@ document.addEventListener('DOMContentLoaded', function () {
     "CSS": "I leverage CSS and frameworks like Tailwind to build responsive, modern, and high-performance user interfaces. I specialize in 'Glassmorphism' and dark-mode aesthetics to give automation tools a premium, professional agency feel.",
     "Zapier": "Zapier is my primary tool for workflow orchestration and systems integration. I use it to bridge disconnected platforms, manage complex logic branching (Paths), and automate the flow of data between webhooks, AI engines, and productivity suites.",
     "ChatGPT": "I integrate OpenAI's LLMs to add 'intelligence' to standard applications. I have experience in advanced prompt engineering and lead scoring, using AI to perform real-time intent analysis and autonomous decision-making.",
+    "n8n": "I use n8n to build complex workflow automation systems. I have experience in building systems that connect to external APIs, use AI agents, and perform complex data transformations.",
+    "NextJS": "I use NextJS to build server-side rendered web applications. I have experience in building web applications that are fast, scalable, and easy to maintain.",
+    "Google Space": "I use Google Space to build web applications that are integrated with Google Workspace. I have experience in building web applications that are integrated with Google Workspace, such as Google Sheets, Google Docs, and Google Forms.",
   };
 
   const modal = document.getElementById('tech-modal');
@@ -366,7 +369,7 @@ document.addEventListener('DOMContentLoaded', function () {
       this.style.opacity = '0.7';
       
       // Method 1: Try direct download with fetch
-      fetch('files/james-d-quijada-resume.pdf')
+      fetch('files/james_quijada-resume.pdf')
         .then(response => {
           if (response.ok) {
             return response.blob();
@@ -391,7 +394,7 @@ document.addEventListener('DOMContentLoaded', function () {
           
           // Method 2: Fallback to direct link
           const link = document.createElement('a');
-          link.href = 'files/james-d-quijada-resume.pdf';
+          link.href = 'files/james_quijada-resume.pdf';
           link.download = 'James_Kun_Resume.pdf';
           link.target = '_blank';
           
