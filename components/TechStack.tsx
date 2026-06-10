@@ -45,12 +45,14 @@ export default function TechStack() {
                     data-tech={tech.id}
                     onClick={() => setSelected(tech)}
                   >
-                    <Image
-                      src={tech.icon}
-                      alt={tech.name}
-                      width={24}
-                      height={24}
-                    />
+                    <span className="tech-icon-wrap">
+                      <Image
+                        src={tech.icon}
+                        alt={tech.name}
+                        fill
+                        style={{ objectFit: "contain" }}
+                      />
+                    </span>
                     <span>{tech.label}</span>
                   </button>
                 ))}
