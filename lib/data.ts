@@ -118,8 +118,22 @@ export const projects: Project[] = [
     description:
       "A web-based system developed as a school project to monitor loan applications, payments, and borrower information.",
     slides: [
-      { src: "/images/projects/project1.png", alt: "dashboard", caption: "Login Page" },
-      { src: "/images/projects/project2.png", alt: "login", caption: "Dashboard" },
+      { src: "/images/projects/project1.png", alt: "login", caption: "Login Page" },
+      { src: "/images/projects/A1.png", alt: "Adashboard", caption: "Admin Dashboard" },
+      { src: "/images/projects/A2.png", alt: "Aapplication", caption: "Data Import & Export" },
+      { src: "/images/projects/A3.png", alt: "logs", caption: "Activity tracking" },
+
+      { src: "/images/projects/b1.png", alt: "Mdashboard", caption: "Manager Dashboard" },
+      { src: "/images/projects/b2.png", alt: "payment", caption: "Payment Page" },
+      { src: "/images/projects/b3.png", alt: "client", caption: "Client Page" },
+      { src: "/images/projects/b4.png", alt: "loan", caption: "Loan Settings" },
+
+      { src: "/images/projects/L1.png", alt: "Lappication", caption: "Processing Page" },
+      { src: "/images/projects/L2.png", alt: "applicationdetails", caption: "Loan Details" },
+
+      { src: "/images/projects/C1.png", alt: "Capplication", caption: "New Loan Application" },
+      { src: "/images/projects/C2.png", alt: "C2application", caption: "Collectors View" },
+
     ],
   },
   {
@@ -139,8 +153,8 @@ export const projects: Project[] = [
       "A bi-directional automation connecting Telegram, Google Sheets, and Gmail. Features real-time status updates via Telegram callback queries and automated data cleaning for streamlined order management.",
     link: "https://github.com/JamesKunn/telegram-order-automation-syn.git",
     slides: [
-      { src: "/images/projects/scenario1.png", alt: "Scenario 1", caption: "Scenario 1" },
-      { src: "/images/projects/scenario2.png", alt: "Scenario 2", caption: "Scenario 2" },
+      { src: "/images/projects/orderform1.png", alt: "Scenario 1", caption: "Take orders via GForm" },
+      { src: "/images/projects/orderform2.png", alt: "Scenario 2", caption: "Confirm orders via Gmail/Telegram" },
     ],
   },
   {
@@ -161,9 +175,11 @@ export const projects: Project[] = [
       "Engineered a workflow triggered by real-time Google Sheets updates. It utilizes GPT-4.1-mini to draft 1,000-word articles in a specific brand voice, formats the text into clean HTML, and prompts DALL-E 3 to generate a relevant featured image.",
     link: "https://github.com/JamesKunn/the-ai-powered-autonomous-gatekeeper.git",
     slides: [
-      { src: "/images/projects/aiblog1.png", alt: "Workflow 1", caption: "Topic Generator & Approval" },
-      { src: "/images/projects/aiblog2.png", alt: "Workflow 2", caption: "Blog Content Generator" },
-      { src: "/images/projects/aiblog3.png", alt: "Workflow 3", caption: "Blog Post Publishing" },
+      { src: "/images/projects/bloggen1.png", alt: "Workflow 1", caption: "Generates Topic" },
+      { src: "/images/projects/bloggen2.png", alt: "Workflow 2", caption: "Approves Generated Topic" },
+      { src: "/images/projects/bloggen3.png", alt: "Workflow 3", caption: "Generates Blog Contents" },
+      { src: "/images/projects/bloggen4.png", alt: "Workflow 4", caption: "DALL-E Image Generation" },
+      { src: "/images/projects/bloggen5.png", alt: "Workflow 5", caption: "Final Blog Post Output" },
     ],
   },
   {
@@ -173,8 +189,9 @@ export const projects: Project[] = [
       "Developed a backend automation system in n8n that listens to a Next.js/Vercel frontend webhook. When a PRD is uploaded, the system parses the data and sequentially generates structured Epics, User Stories, and Sprint Board tasks.",
     link: "https://github.com/JamesKunn/",
     slides: [
-      { src: "/images/projects/prdtoepic1.png", alt: "Workflow 1", caption: "Generate Epic from PRD File" },
-      { src: "/images/projects/prdtoepic2.png", alt: "Workflow 2", caption: "Generate User Stories from Epic & Tasks from User Stories" },
+      { src: "/images/projects/prd-to-epic.png", alt: "Workflow 1", caption: "Generates Epic from PRD File" },
+      { src: "/images/projects/epic-to-us.png", alt: "Workflow 2", caption: "Generate User Stories from Epic" },
+      { src: "/images/projects/us-to-sb.png", alt: "Workflow 3", caption: "Generate Tasks from User Stories" },
     ],
   },
   {
@@ -184,19 +201,19 @@ export const projects: Project[] = [
       "Architected an n8n workflow that automatically extracts raw text from PDF and Docx files stored in Google Drive. Elite OpenAI Agents analyze functional requirements, user flows, and edge cases to autonomously generate a structured QA test suite.",
     link: "https://github.com/JamesKunn/the-ai-powered-autonomous-gatekeeper.git",
     slides: [
-      { src: "/images/projects/prdtotestcase.png", alt: "Workflow 1", caption: "Generate Test Cases from PRD File" },
+      { src: "/images/projects/testcasegen.png", alt: "Workflow 1", caption: "Generate Test Cases from PRD File" },
     ],
   },
 ];
 
 export const navLinks = [
   { href: "#home", label: "Home" },
-  { href: "#intro", label: "Intro" },
-  { href: "#about", label: "About" },
+  { href: "#about", label: "About Me" },
   { href: "#tech", label: "Tech Stacks" },
   { href: "#projects", label: "Projects" },
   { href: "#contact", label: "Contact" },
 ];
+
 
 export const socialLinks = [
   {

@@ -12,6 +12,22 @@ export default function Header() {
 
   useEffect(() => {
     const onScroll = () => {
+      const introEl = document.querySelector("#intro") as HTMLElement | null;
+      const aboutEl = document.querySelector("#about") as HTMLElement | null;
+
+      // Merge logic: "About Me" should stay active while user is within
+      // either #intro or #about.
+      if (introEl && aboutEl) {
+        const headerOffset = 200;
+        const introTop = introEl.offsetTop - headerOffset;
+        const aboutBottom = aboutEl.offsetTop + aboutEl.offsetHeight - headerOffset;
+
+        if (window.scrollY >= introTop && window.scrollY < aboutBottom) {
+          setActiveSection("about");
+          return;
+        }
+      }
+
       const sections = document.querySelectorAll("section[id]");
       let current = "home";
       sections.forEach((section) => {
@@ -20,8 +36,11 @@ export default function Header() {
           current = el.id;
         }
       });
+
+      // Ensure link highlight matches existing section IDs exactly.
       setActiveSection(current);
     };
+
 
     window.addEventListener("scroll", onScroll);
     onScroll();
@@ -30,17 +49,20 @@ export default function Header() {
 
   const scrollTo = useCallback(
     (href: string) => {
-      const target = document.querySelector(href);
+      // Merge logic: when clicking "About Me" (#about), scroll to #intro first.
+      const resolvedHref = href === "#about" ? "#intro" : href;
+
+      const target = document.querySelector(resolvedHref);
       if (!target) return;
       const header = document.querySelector(".header") as HTMLElement;
       const headerHeight = header?.offsetHeight ?? 70;
-      const top =
-        (target as HTMLElement).offsetTop - headerHeight;
+      const top = (target as HTMLElement).offsetTop - headerHeight;
       window.scrollTo({ top, behavior: "smooth" });
       setMobileOpen(false);
     },
     []
   );
+
 
   return (
     <div className="header">
