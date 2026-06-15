@@ -1,24 +1,30 @@
 import type { Metadata, Viewport } from "next";
-import { Roboto, Roboto_Slab } from "next/font/google";
-import "bootstrap/dist/css/bootstrap.min.css";
+import { Sora, Hanken_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 
-const roboto = Roboto({
+const sora = Sora({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "700"],
-  variable: "--font-roboto",
+  weight: ["300", "400", "600", "700"],
+  variable: "--font-sora",
 });
 
-const robotoSlab = Roboto_Slab({
+const hankenGrotesk = Hanken_Grotesk({
   subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-roboto-slab",
+  weight: ["300", "400", "500"],
+  variable: "--font-hanken",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-jetbrains",
 });
 
 export const metadata: Metadata = {
-  title: "James Kun — E-Portfolio",
-  description: "James Kun - Web Developer, VA, AI Automation",
+  title: "James Quijada | AI Automation & Workflow Engineer",
+  description:
+    "James Quijada — AI Automation, Workflow Engineering, and Scalable Systems.",
   icons: {
     icon: "/images/logo.png",
     shortcut: "/images/logo.png",
@@ -27,17 +33,27 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#ad4d65",
+  themeColor: "#0b1326",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${roboto.variable} ${robotoSlab.variable}`}>
-      <body className={roboto.className} data-theme="light" suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`dark ${sora.variable} ${hankenGrotesk.variable} ${jetbrainsMono.variable}`}
+    >
+      <head>
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
+        />
+      </head>
+      <body
+        className="font-body-md selection:bg-primary selection:text-on-primary"
+        suppressHydrationWarning
+      >
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>

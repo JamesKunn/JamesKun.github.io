@@ -207,29 +207,28 @@ export const projects: Project[] = [
 ];
 
 export const navLinks = [
-  { href: "#home", label: "Home" },
-  { href: "#about", label: "About Me" },
-  { href: "#tech", label: "Tech Stacks" },
+  { href: "#about", label: "About" },
+  { href: "#tech", label: "Tech Stack" },
   { href: "#projects", label: "Projects" },
   { href: "#contact", label: "Contact" },
 ];
-
 
 export const socialLinks = [
   {
     href: "https://www.facebook.com/share/1AnTFiR5L6/",
     label: "Facebook",
-    icon: "/images/tech/facebook.png",
   },
   {
     href: "https://www.instagram.com/ohgilew?igsh=YjdjeGtrcGw0eWpp",
     label: "Instagram",
-    icon: "/images/tech/instagram.png",
   },
   {
-    href: "https://www.linkedin.com/in/james-quijada-538889273?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+    href: "https://www.linkedin.com/in/james-quijada-538889273",
     label: "LinkedIn",
-    icon: "/images/tech/linkedin.png",
+  },
+  {
+    href: "https://github.com/JamesKunn/",
+    label: "GitHub",
   },
 ];
 

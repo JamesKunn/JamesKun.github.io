@@ -12,22 +12,6 @@ export default function Header() {
 
   useEffect(() => {
     const onScroll = () => {
-      const introEl = document.querySelector("#intro") as HTMLElement | null;
-      const aboutEl = document.querySelector("#about") as HTMLElement | null;
-
-      // Merge logic: "About Me" should stay active while user is within
-      // either #intro or #about.
-      if (introEl && aboutEl) {
-        const headerOffset = 200;
-        const introTop = introEl.offsetTop - headerOffset;
-        const aboutBottom = aboutEl.offsetTop + aboutEl.offsetHeight - headerOffset;
-
-        if (window.scrollY >= introTop && window.scrollY < aboutBottom) {
-          setActiveSection("about");
-          return;
-        }
-      }
-
       const sections = document.querySelectorAll("section[id]");
       let current = "home";
       sections.forEach((section) => {
@@ -36,106 +20,117 @@ export default function Header() {
           current = el.id;
         }
       });
-
-      // Ensure link highlight matches existing section IDs exactly.
       setActiveSection(current);
     };
-
-
     window.addEventListener("scroll", onScroll);
     onScroll();
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const scrollTo = useCallback(
-    (href: string) => {
-      // Merge logic: when clicking "About Me" (#about), scroll to #intro first.
-      const resolvedHref = href === "#about" ? "#intro" : href;
-
-      const target = document.querySelector(resolvedHref);
-      if (!target) return;
-      const header = document.querySelector(".header") as HTMLElement;
-      const headerHeight = header?.offsetHeight ?? 70;
-      const top = (target as HTMLElement).offsetTop - headerHeight;
-      window.scrollTo({ top, behavior: "smooth" });
-      setMobileOpen(false);
-    },
-    []
-  );
-
+  const scrollTo = useCallback((href: string) => {
+    const target = document.querySelector(href);
+    if (!target) return;
+    const header = document.querySelector("header") as HTMLElement;
+    const top =
+      (target as HTMLElement).offsetTop - (header?.offsetHeight ?? 80);
+    window.scrollTo({ top, behavior: "smooth" });
+    setMobileOpen(false);
+  }, []);
 
   return (
-    <div className="header">
-      <div className="header-container">
-        <div className="logo">
-          <button
-            type="button"
-            className="nav-link"
-            style={{ padding: 0 }}
-            onClick={() => scrollTo("#home")}
-            aria-label="Go to home"
-          >
-            <Image
-              src="/images/logo.png"
-              alt="logo"
-              className="logo-nav"
-              width={50}
-              height={50}
-              priority
-            />
-          </button>
-        </div>
+    <header className="fixed top-0 w-full z-50 glass-nav border-b border-white/10 bg-surface/70">
+      <nav className="max-w-container-max mx-auto px-gutter py-4 flex justify-between items-center">
+        {/* Logo + Name */}
+        <button
+          type="button"
+          onClick={() => scrollTo("#home")}
+          aria-label="Go to home"
+          className="flex items-center gap-4"
+        >
+          <Image
+            src="/images/logo.png"
+            alt="JQ Logo"
+            className="w-10 h-10 rounded-lg"
+            width={40}
+            height={40}
+            priority
+          />
+          <span className="font-display-xl text-section-title font-bold text-on-surface tracking-tighter">
+            James Quijada
+          </span>
+        </button>
 
-        <nav className={`nav-menu${mobileOpen ? " mobile-open" : ""}`}>
+        {/* Desktop nav */}
+        <div className="hidden md:flex items-center gap-8 font-mono-label text-mono-label uppercase tracking-widest">
           {navLinks.map((link) => (
             <button
               key={link.href}
               type="button"
-              className={`nav-link${activeSection === link.href.slice(1) ? " active" : ""}`}
               onClick={() => scrollTo(link.href)}
+              className={`transition-colors ${
+                activeSection === link.href.slice(1)
+                  ? "text-on-surface"
+                  : "text-text-dim hover:text-on-surface"
+              }`}
             >
               {link.label}
             </button>
           ))}
 
-          <div className="theme-toggle">
-            <input
-              type="radio"
-              id="light-mode"
-              name="theme"
-              value="light"
-              checked={theme === "light"}
-              onChange={() => setTheme("light")}
-            />
-            <label htmlFor="light-mode" className="theme-label">
-              ☀️
-            </label>
-            <input
-              type="radio"
-              id="dark-mode"
-              name="theme"
-              value="dark"
-              checked={theme === "dark"}
-              onChange={() => setTheme("dark")}
-            />
-            <label htmlFor="dark-mode" className="theme-label">
-              🌙
-            </label>
-          </div>
-        </nav>
+          {/* Theme toggle */}
+          <button
+            type="button"
+            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            aria-label="Toggle theme"
+            className="text-primary hover:text-on-surface transition-colors ml-2"
+            title={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+          >
+            <span className="material-symbols-outlined">
+              {theme === "dark" ? "light_mode" : "dark_mode"}
+            </span>
+          </button>
+        </div>
 
-        <button
-          type="button"
-          className={`mobile-menu-btn${mobileOpen ? " active" : ""}`}
-          id="mobile-menu-btn"
-          aria-label="Toggle menu"
-          onClick={() => setMobileOpen((o) => !o)}
-        >
-          <span />
-          <span />
-          <span />
-        </button>
-      </div>
-    </div>
+        {/* Mobile right: theme + hamburger */}
+        <div className="md:hidden flex items-center gap-3">
+          <button
+            type="button"
+            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            aria-label="Toggle theme"
+            className="text-primary"
+          >
+            <span className="material-symbols-outlined">
+              {theme === "dark" ? "light_mode" : "dark_mode"}
+            </span>
+          </button>
+          <button
+            type="button"
+            className="text-on-surface"
+            onClick={() => setMobileOpen((o) => !o)}
+            aria-label="Toggle menu"
+          >
+            <span className="material-symbols-outlined">
+              {mobileOpen ? "close" : "menu"}
+            </span>
+          </button>
+        </div>
+      </nav>
+
+      {/* Mobile dropdown */}
+      {mobileOpen && (
+        <div className="md:hidden bg-surface-container border-t border-white/10 px-gutter py-4 flex flex-col gap-2">
+          {navLinks.map((link) => (
+            <button
+              key={link.href}
+              type="button"
+              onClick={() => scrollTo(link.href)}
+              className="font-mono-label text-mono-label uppercase tracking-widest text-text-dim hover:text-on-surface transition-colors text-left py-3 border-b border-white/5"
+            >
+              {link.label}
+            </button>
+          ))}
+        </div>
+      )}
+    </header>
   );
 }
