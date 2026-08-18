@@ -107,8 +107,8 @@ export default function Hero() {
             <span className="text-primary">James Quijada</span>
           </h1>
           <p className="font-body-lg text-body-lg text-text-dim max-w-xl">
-            I specialize in AI Automation, Workflow Engineering, and building
-            scalable systems that eliminate manual bottlenecks.
+          I build intelligent AI automations that eliminate manual work, fix broken workflows, 
+          and scale business operations.
           </p>
         </div>
 

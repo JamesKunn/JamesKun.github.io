@@ -204,6 +204,18 @@ export const projects: Project[] = [
       { src: "/images/projects/testcasegen.png", alt: "Workflow 1", caption: "Generate Test Cases from PRD File" },
     ],
   },
+   {
+    id: "python",
+    title: "Youtube AI Repurposing",
+    description:
+      "An AI-powered dashboard that automatically transforms long-form YouTube videos into engaging, viral-ready short clips. It eliminates manual video editing by using AI to analyze content, generate voiceovers, and render the final vertical video—all from a simple web interface.",
+    link: "https://github.com/JamesKunn/",
+    slides: [
+      { src: "/images/projects/youtube-auto.png", alt: "Workflow 1", caption: "A YouTube video link and an AI voice preference are entered into the dashboard." },
+      { src: "/images/projects/youtube-auto2.png", alt: "Workflow 2", caption: "The system downloads the video, uses AI to extract the best highlights, and automatically renders the edits." },
+      { src: "/images/projects/youtube-auto3.png", alt: "Workflow 3", caption: "A ready-to-post vertical MP4 short complete with synchronized subtitles and an AI voiceover." },
+    ],
+  },
 ];
 
 export const navLinks = [
@@ -232,5 +244,5 @@ export const socialLinks = [
   },
 ];
 
-export const RESUME_PATH = "/files/james_quijada-resume.pdf";
-export const RESUME_FILENAME = "James_Kun_Resume.pdf";
+export const RESUME_PATH = "/files/JamesBryanDQuijada-resume.pdf";
+export const RESUME_FILENAME = "James-QuijadaResume.pdf";

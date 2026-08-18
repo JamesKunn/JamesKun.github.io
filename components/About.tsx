@@ -17,16 +17,14 @@ export default function About() {
           {/* Quote */}
           <div className="md:col-span-11">
             <blockquote className="font-blockquote text-blockquote italic text-on-surface leading-relaxed relative pl-8 border-l-2 border-primary/30">
-              &ldquo;I am an IT Professional and Systems Architect obsessed with
-              making systems smarter. I bridge the gap between static interfaces
-              and intelligent decision-making by engineering autonomous digital
-              workflows using n8n, OpenAI, Zapier, and Make.com.&rdquo;
+              &ldquo;Operations break down when teams waste hundreds of hours on repetitive manual tasks. 
+              As a Systems Architect, I eliminate these operational bottlenecks by engineering autonomous
+              workflows using n8n, Make.com, and OpenAI. &rdquo;
               <br />
               <br />
-              &ldquo;With a strong foundation in PHP/Laravel and modern
-              JavaScript frameworks, I build end-to-end solutions—from custom
-              Learning Management Systems to AI-driven QA engines—that optimize
-              business efficiency, reduce overhead, and scale seamlessly.&rdquo;
+              &ldquo;Whether replacing manual content pipelines, filtering sales leads, or auto-generating 
+              QA test suites, I build scalable backend logic that reduces operational overhead and lets businesses 
+              scale without the busywork.&rdquo;
               <footer className="mt-8 not-italic">
                 <span className="font-display-xl text-primary font-bold">
                   — James Kun
