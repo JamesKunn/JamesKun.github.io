@@ -1,14 +1,14 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import { featuredProjects } from "@/lib/data";
+import { otherProjects } from "@/lib/data";
 import {
   ImageLightbox,
   ProjectGrid,
   type Lightbox,
 } from "./ProjectCards";
 
-export default function Projects() {
+export default function OtherProjects() {
   const [lightbox, setLightbox] = useState<Lightbox>(null);
 
   const openLightbox = useCallback((src: string, alt: string) => {
@@ -32,18 +32,19 @@ export default function Projects() {
 
   return (
     <>
-      <section id="projects" className="py-section-gap relative overflow-hidden">
+      <section
+        id="other-projects"
+        className="py-section-gap relative overflow-hidden border-t border-outline-variant/10"
+      >
         <div className="max-w-container-max mx-auto px-gutter mb-16 relative z-10">
-          <h2 className="font-display-xl text-headline-lg mb-4">
-            Featured Automation Projects
-          </h2>
+          <h2 className="font-display-xl text-headline-lg mb-4">Other Projects</h2>
           <p className="font-body-md text-text-dim max-w-2xl">
-            AI-powered workflows and integrations built with n8n, Make, Zapier,
-            APIs, and LLMs—designed to automate real business processes.
+            Web applications and systems that demonstrate software engineering
+            fundamentals alongside automation work.
           </p>
         </div>
 
-        <ProjectGrid items={featuredProjects} onImageClick={openLightbox} />
+        <ProjectGrid items={otherProjects} onImageClick={openLightbox} />
       </section>
 
       <ImageLightbox lightbox={lightbox} onClose={closeLightbox} />

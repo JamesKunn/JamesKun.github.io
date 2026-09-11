@@ -40,7 +40,7 @@ export default function Footer() {
             />
           </div>
           <p className="font-body-md text-text-dim text-sm">
-            © {new Date().getFullYear()} James Quijada. Built for Autonomous Logic.
+            © {new Date().getFullYear()} James Quijada. AI Automation & Workflow Engineering.
           </p>
         </div>
 

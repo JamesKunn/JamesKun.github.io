@@ -2,12 +2,18 @@
 
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
-import { techStacks, type TechItem } from "@/lib/data";
+import { skillCategories, techStacks, type TechItem } from "@/lib/data";
 
 export default function TechStack() {
   const [selected, setSelected] = useState<TechItem | null>(null);
 
   const closeModal = useCallback(() => setSelected(null), []);
+
+  const openSkill = useCallback((techId?: string) => {
+    if (!techId) return;
+    const tech = techStacks.find((t) => t.id === techId);
+    if (tech) setSelected(tech);
+  }, []);
 
   useEffect(() => {
     if (!selected) return;
@@ -24,46 +30,85 @@ export default function TechStack() {
 
   return (
     <>
-      <section id="tech" className="py-section-gap overflow-hidden">
+      <section id="skills" className="py-section-gap overflow-hidden">
         <div className="max-w-container-max mx-auto px-gutter mb-16 flex flex-col md:flex-row justify-between items-end gap-6">
           <div>
             <h2 className="font-display-xl text-headline-lg mb-4">
-              Tech Stacks
+              Technical Skills
             </h2>
             <p className="font-body-md text-text-dim">
-              Core technologies powering my automation ecosystems.
+              Organized by focus area — n8n, AI, APIs, and automation tools are
+              core to how I build.
             </p>
           </div>
           <p className="font-mono-label text-text-dim text-sm italic">
-            Click a skill to view details
+            Click a highlighted skill to view details
           </p>
         </div>
 
-        <div className="max-w-container-max mx-auto px-gutter grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-          {techStacks.map((tech) => (
-            <button
-              key={tech.id}
-              type="button"
-              onClick={() => setSelected(tech)}
-              className="bg-surface-card border border-white/5 p-6 flex flex-col items-center justify-center gap-4 group hover:border-primary/50 hover:bg-surface-container-high transition-all duration-300 rounded-lg"
+        <div className="max-w-container-max mx-auto px-gutter space-y-8">
+          {skillCategories.map((category) => (
+            <div
+              key={category.title}
+              className={`glass-card rounded-2xl p-6 md:p-8 ${
+                category.prominent
+                  ? "border-primary/25 bg-primary/5"
+                  : "border-white/5"
+              }`}
             >
-              <div className="relative w-12 h-12 grayscale group-hover:grayscale-0 transition-all">
-                <Image
-                  src={tech.icon}
-                  alt={tech.name}
-                  fill
-                  style={{ objectFit: "contain" }}
-                />
+              <h3
+                className={`font-display-xl text-lg font-bold mb-5 ${
+                  category.prominent ? "text-primary" : "text-on-surface"
+                }`}
+              >
+                {category.title}
+              </h3>
+
+              <div className="flex flex-wrap gap-3">
+                {category.skills.map((skill) => {
+                  const tech = skill.techId
+                    ? techStacks.find((t) => t.id === skill.techId)
+                    : null;
+                  const isClickable = Boolean(tech);
+
+                  if (isClickable && tech) {
+                    return (
+                      <button
+                        key={skill.label}
+                        type="button"
+                        onClick={() => openSkill(skill.techId)}
+                        className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-lg border border-white/10 bg-surface-container-high hover:border-primary/50 hover:bg-surface-container transition-all group"
+                      >
+                        <div className="relative w-5 h-5 grayscale group-hover:grayscale-0 transition-all shrink-0">
+                          <Image
+                            src={tech.icon}
+                            alt={tech.name}
+                            fill
+                            style={{ objectFit: "contain" }}
+                          />
+                        </div>
+                        <span className="font-mono-label text-[11px] uppercase tracking-wider text-on-surface">
+                          {skill.label}
+                        </span>
+                      </button>
+                    );
+                  }
+
+                  return (
+                    <span
+                      key={skill.label}
+                      className="inline-flex items-center px-4 py-2.5 rounded-lg border border-white/10 bg-surface-container-low font-mono-label text-[11px] uppercase tracking-wider text-text-dim"
+                    >
+                      {skill.label}
+                    </span>
+                  );
+                })}
               </div>
-              <span className="font-mono-label uppercase text-[11px] tracking-widest text-center leading-tight">
-                {tech.label}
-              </span>
-            </button>
+            </div>
           ))}
         </div>
       </section>
 
-      {/* Modal */}
       {selected && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm"
